@@ -87,11 +87,11 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
- background:  /*linear-gradient(
+  background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
-    )*/
+    )
     rgb(var(--background-start-rgb));
 }
 
@@ -107,29 +107,7 @@ a {
 }
 
 
-/*css for navbar*/
- /* styles.css */
-.nav {
-  width:auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  background-color: #eee;
-}
-
-.logo {
-  width:100px;
-  font-size: 20px;
-}
-
-.email {
-  width:200px;
-  float:right;
-  flex-grow: 1;
-  text-align: right;
-}
-
-.logout {
-  cursor: pointer;
+.tableContainer{
+  overflow-y: scroll;
+  height: 240px;
 }
