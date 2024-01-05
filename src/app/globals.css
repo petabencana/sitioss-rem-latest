@@ -118,10 +118,10 @@ a {
   background-color: #eee;
 }
 
-.logo {
-  width:100px;
-  font-size: 20px;
-}
+/* .logo {
+   width:100px;
+  font-size: 20px; 
+}*/
 
 .email {
   width:200px;
@@ -132,4 +132,10 @@ a {
 
 .logout {
   cursor: pointer;
+}
+
+.tableContainer{
+  background-color: #ffffff;
+  overflow-y: scroll;
+  height: 240px;
 }
