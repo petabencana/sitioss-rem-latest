@@ -10,9 +10,10 @@ import { Authenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 import awsExports from "../aws-exports";
 import { useState } from 'react';
-import HomePage from './map/page';
+import MapPage from './map/components/base_layout';
 import { signOut } from '@aws-amplify/auth';
 import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
 Amplify.configure(awsExports);
 /*
@@ -28,28 +29,24 @@ const MainComponent = () => {
   };
 } 
 */
-function MyButton() {
-  return (
-    
-    
-    <button>
-      LOGIN
-    </button>
-    
-  );
-}
+
 export default function Home() {
   const router = useRouter(); // Get the router instance
 
   const handleLogout = async () => {
     try {
       await signOut();
-      router.push('/'); // Redirect to / route after logout
+      console.log('replaced');
+      router.replace('/'); // Redirect to / route after logout
+      
     } catch (error) {
       console.error('Error signing out:', error);
     }
   };
-  
+  useEffect(() => {
+    // Additional logic you want to run when the component mounts
+    // This is a good place for initialization logic or other side effects
+  }, []);
   //const [userEmail, setUserEmail] = useState('user@example.com');
   /*
   const navigate = useNavigate();
@@ -77,8 +74,10 @@ export default function Home() {
         <main>
           {user ? (
         <>
-           
-            <HomePage />
+           {/*router.push('/map')*/}
+           {router.replace('/map')}
+            <MapPage></MapPage>
+            
             {/*
             <Routes>
             <Route path="/" element={<Navigate to="map" />} />
@@ -88,7 +87,11 @@ export default function Home() {
           
         </>
       ) : (
+        <>
+        
+        {router.back()}
         <p>Loading...</p>
+        </>
       )}
         </main>
       )}
