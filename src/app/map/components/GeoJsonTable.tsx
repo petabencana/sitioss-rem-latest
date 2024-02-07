@@ -2,10 +2,10 @@
 'use client';
 import React from 'react';
 import { useTable } from 'react-table';
-//import 'react-table/css/react-table.css';
+
 
 const GeoJsonTable = ({ geoJsonData, district, village  }:any) => {
-  console.log("GeoJsonTable Data:", geoJsonData);
+ 
   const features = geoJsonData?.features || [];
   // Filter features based on selected district and village
   const filteredFeatures = features.filter((feature:any) => {
@@ -32,7 +32,7 @@ const GeoJsonTable = ({ geoJsonData, district, village  }:any) => {
     []
   );
 
- // const data = React.useMemo(() => features, [features]);
+
  const data = React.useMemo(() => filteredFeatures, [filteredFeatures]);
   const {
     getTableProps,
@@ -46,21 +46,21 @@ const GeoJsonTable = ({ geoJsonData, district, village  }:any) => {
     <div className="tableContainer">
     <table {...getTableProps()} style={{ width: '100%' }}>
       <thead>
-        {headerGroups.map((headerGroup:any) => (
-          <tr {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map((column:any) => (
-              <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+        {headerGroups.map((headerGroup:any,index:number) => (
+          <tr key={index}>
+            {headerGroup.headers.map((column:any , index:number) => (
+              <th  key={index}>{column.render('Header')}</th>
             ))}
           </tr>
         ))}
       </thead>
       <tbody {...getTableBodyProps()}>
-        {rows.map((row:any) => {
+        {rows.map((row:any,index:number) => {
           prepareRow(row);
           return (
-            <tr {...row.getRowProps()}>
-              {row.cells.map((cell:any) => (
-                <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+            <tr key={index}>
+              {row.cells.map((cell:any,index:number) => (
+                <td key={index}>{cell.render('Cell')}</td>
               ))}
             </tr>
           );

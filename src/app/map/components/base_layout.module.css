@@ -1,2 +1,58 @@
-.contentDiv{background-color: white;
-padding:30px 30px;}
+.contentDiv{
+    background-color: white;
+    padding:30px 30px;}
+
+
+.updateBtn{
+    width: 200px;
+    margin-left: 400px;
+}
+.info {
+    padding: 6px 8px;
+    margin: 5px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.95);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    white-space: normal;
+  }
+  
+  .legend {
+       color: #555;
+       font-size: 9px;
+       line-height: normal;
+       font-family: 'Lato';
+       font-weight :100;
+       /* font-family: Lato:100; */
+       margin:0px;
+       padding:5px;
+  }
+  
+  .color {
+        width: 24px;
+        height: 18px;
+        float: left;
+        margin-right: 0;
+        opacity: 0.7;
+        margin-bottom:0;
+  }
+  
+  .sublegend {
+    margin:3px;
+    line-height: 18px;
+  }
+  
+ 
+
+.leafletRight {
+    right: 0;
+}
+
+ .leafletBottom {
+    top:600px;
+    
+    position: absolute;
+    z-index: 1000;
+    pointer-events: none;
+}
